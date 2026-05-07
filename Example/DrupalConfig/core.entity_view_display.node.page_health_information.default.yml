@@ -1,0 +1,84 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_health_information
+    - field.field.node.page_health_information.field_master_application
+    - field.field.node.page_health_information.field_mb_health_number_9_digit
+    - field.field.node.page_health_information.field_mb_health_number_6_digit
+    - field.field.node.page_health_information.field_emergency_contact_person
+    - field.field.node.page_health_information.field_emergency_contact_r_816136
+    - field.field.node.page_health_information.field_allergies
+    - field.field.node.page_health_information.field_medications_used_fr_2b9881
+    - field.field.node.page_health_information.field_medical_restrictions
+  module:
+    - node
+    - options
+    - text
+id: node.page_health_information.default
+targetEntityType: node
+bundle: page_health_information
+mode: default
+content:
+  field_master_application:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 0
+    region: content
+  field_mb_health_number_9_digit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 1
+    region: content
+  field_mb_health_number_6_digit:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 2
+    region: content
+  field_emergency_contact_person:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 3
+    region: content
+  field_emergency_contact_r_816136:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 4
+    region: content
+  field_allergies:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 5
+    region: content
+  field_medications_used_fr_2b9881:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 6
+    region: content
+  field_medical_restrictions:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 7
+    region: content
+hidden: {}

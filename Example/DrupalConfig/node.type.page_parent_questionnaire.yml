@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+name: Page - Parent Questionnaire
+type: page_parent_questionnaire
+description: Reusable page definition for parent narrative responses.
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

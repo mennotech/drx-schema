@@ -1,0 +1,54 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.application
+    - field.field.node.application.field_application_form
+    - field.field.node.application.field_started_at
+    - field.field.node.application.field_application_status
+    - field.field.node.application.field_application_result
+    - field.field.node.application.field_payment_state
+  module:
+    - node
+    - datetime
+    - options
+id: node.application.default
+targetEntityType: node
+bundle: application
+mode: default
+content:
+  field_application_form:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_started_at:
+    type: datetime_default
+    weight: 1
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_application_status:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_application_result:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_payment_state:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+hidden: {}

@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+name: Application
+type: application
+description: Per-submission application record created when a user starts a form.
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

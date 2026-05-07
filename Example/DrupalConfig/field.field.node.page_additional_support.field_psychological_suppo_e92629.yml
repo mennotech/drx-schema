@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_psychological_suppo_e92629
+    - node.type.page_additional_support
+id: node.page_additional_support.field_psychological_suppo_e92629
+field_name: field_psychological_suppo_e92629
+entity_type: node
+bundle: page_additional_support
+label: Psychological Support
+description: 'Section: Additional Support Declaration'
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: text_long

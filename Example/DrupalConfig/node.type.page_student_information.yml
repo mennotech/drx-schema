@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+name: Page - Student Information
+type: page_student_information
+description: 'Reusable page definition for student identity, demographics, and address details.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

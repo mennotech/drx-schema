@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+name: Page - Statement Of Commitment
+type: page_statement_of_commitment
+description: Reusable page definition for commitment acknowledgement and signature.
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_additional_support
+    - field.field.node.page_additional_support.field_master_application
+    - field.field.node.page_additional_support.field_academic_support_details
+    - field.field.node.page_additional_support.field_diagnosis_assessmen_18b9ab
+    - field.field.node.page_additional_support.field_psychological_suppo_e92629
+    - field.field.node.page_additional_support.field_support_declaration_265eb8
+  module:
+    - node
+    - text
+    - options
+id: node.page_additional_support.default
+targetEntityType: node
+bundle: page_additional_support
+mode: default
+content:
+  field_master_application:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_academic_support_details:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_diagnosis_assessmen_18b9ab:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_psychological_suppo_e92629:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_support_declaration_265eb8:
+    type: options_buttons
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+hidden: {}

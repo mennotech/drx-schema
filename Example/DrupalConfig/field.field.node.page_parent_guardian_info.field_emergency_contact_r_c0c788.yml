@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_emergency_contact_r_c0c788
+    - node.type.page_parent_guardian_info
+id: node.page_parent_guardian_info.field_emergency_contact_r_c0c788
+field_name: field_emergency_contact_r_c0c788
+entity_type: node
+bundle: page_parent_guardian_info
+label: Emergency Contact Notes
+description: 'Section: Parent / Guardian Information'
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: text_long

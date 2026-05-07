@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_health_information
+    - field.field.node.page_health_information.field_master_application
+    - field.field.node.page_health_information.field_mb_health_number_9_digit
+    - field.field.node.page_health_information.field_mb_health_number_6_digit
+    - field.field.node.page_health_information.field_emergency_contact_person
+    - field.field.node.page_health_information.field_emergency_contact_r_816136
+    - field.field.node.page_health_information.field_allergies
+    - field.field.node.page_health_information.field_medications_used_fr_2b9881
+    - field.field.node.page_health_information.field_medical_restrictions
+  module:
+    - node
+    - options
+    - text
+id: node.page_health_information.default
+targetEntityType: node
+bundle: page_health_information
+mode: default
+content:
+  field_master_application:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_mb_health_number_9_digit:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_mb_health_number_6_digit:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_emergency_contact_person:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_emergency_contact_r_816136:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_allergies:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_medications_used_fr_2b9881:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_medical_restrictions:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+hidden: {}

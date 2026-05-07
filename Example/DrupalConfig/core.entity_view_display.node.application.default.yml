@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.application
+    - field.field.node.application.field_application_form
+    - field.field.node.application.field_started_at
+    - field.field.node.application.field_application_status
+    - field.field.node.application.field_application_result
+    - field.field.node.application.field_payment_state
+  module:
+    - node
+    - datetime
+    - options
+id: node.application.default
+targetEntityType: node
+bundle: application
+mode: default
+content:
+  field_application_form:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 0
+    region: content
+  field_started_at:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {}
+    weight: 1
+    region: content
+  field_application_status:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 2
+    region: content
+  field_application_result:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 3
+    region: content
+  field_payment_state:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 4
+    region: content
+hidden: {}

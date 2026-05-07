@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_parent_guardian_info
+    - field.field.node.page_parent_guardian_info.field_master_application
+    - field.field.node.page_parent_guardian_info.field_primary_guardian_person
+    - field.field.node.page_parent_guardian_info.field_primary_guardian_re_df608e
+    - field.field.node.page_parent_guardian_info.field_secondary_guardian_person
+    - field.field.node.page_parent_guardian_info.field_secondary_guardian__ebbb43
+    - field.field.node.page_parent_guardian_info.field_primary_guardian_re_630bb2
+    - field.field.node.page_parent_guardian_info.field_secondary_guardian__d20f5d
+    - field.field.node.page_parent_guardian_info.field_emergency_contact_r_c0c788
+  module:
+    - node
+    - options
+    - text
+id: node.page_parent_guardian_info.default
+targetEntityType: node
+bundle: page_parent_guardian_info
+mode: default
+content:
+  field_master_application:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_primary_guardian_person:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_primary_guardian_re_df608e:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_secondary_guardian_person:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_secondary_guardian__ebbb43:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_primary_guardian_re_630bb2:
+    type: text_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_secondary_guardian__d20f5d:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_emergency_contact_r_c0c788:
+    type: text_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+hidden: {}

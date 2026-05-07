@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_statement_of_commitment
+    - field.field.node.page_statement_of_commitment.field_master_application
+    - field.field.node.page_statement_of_commitment.field_parent_guardian_signature
+  module:
+    - node
+    - text
+id: node.page_statement_of_commitment.default
+targetEntityType: node
+bundle: page_statement_of_commitment
+mode: default
+content:
+  field_master_application:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_parent_guardian_signature:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+hidden: {}
