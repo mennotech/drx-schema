@@ -10,7 +10,7 @@ returns the combined schema document used by the rest of the module.
 Path to a schema file or directory containing schema YAML files.
 
 .EXAMPLE
-Import-DrXSchema -SchemaPath './Example'
+Import-DrXSchema -SchemaPath './Example/Schema'
 
 .INPUTS
 None. You cannot pipe input to this function.

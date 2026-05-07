@@ -13,7 +13,7 @@ Optional path to a schema file or directory.
 The directory where generated Drupal configuration files will be written.
 
 .EXAMPLE
-Export-DrXDrupalScaffoldConfig -SchemaPath './Example' -OutputDir './out/config'
+Export-DrXDrupalScaffoldConfig -SchemaPath './Example/Schema' -OutputDir './Example/DrupalConfig'
 
 .INPUTS
 None. You cannot pipe input to this function.

@@ -31,7 +31,7 @@ Describe 'DrX-Schema module structure' {
 
 Describe 'DrX-Schema schema import' {
   It 'parses and normalizes the example schema directory' {
-    $schemaPath = Join-Path -Path $PSScriptRoot -ChildPath '..\Example'
+    $schemaPath = Join-Path -Path $PSScriptRoot -ChildPath '..\Example\Schema'
     $parsedSchema = Import-DrXSchema -SchemaPath $schemaPath
     $normalizedSchema = ConvertTo-DrXNormalizedSchema -ParsedSchema $parsedSchema
     $bundleCount = @($parsedSchema.catalog.reusable_bundles).Count + @($parsedSchema.catalog.application_bundles).Count
@@ -47,7 +47,7 @@ Describe 'DrX-Schema schema import' {
     $envFile = Join-Path -Path $tempRoot -ChildPath '.env'
 
     New-Item -ItemType Directory -Path $schemaDir -Force | Out-Null
-    Copy-Item -Path (Join-Path -Path $PSScriptRoot -ChildPath '..\Example\*.yaml') -Destination $schemaDir
+    Copy-Item -Path (Join-Path -Path $PSScriptRoot -ChildPath '..\Example\Schema\*.yaml') -Destination $schemaDir
     Set-Content -Path $envFile -Value 'DRX_SCHEMA_PATH=./schema'
 
     try {

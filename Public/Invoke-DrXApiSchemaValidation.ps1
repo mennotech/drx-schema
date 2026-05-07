@@ -16,7 +16,7 @@ The compose service name for the backend container.
 Optional path to the environment file used for backend settings.
 
 .EXAMPLE
-Invoke-DrXApiSchemaValidation -SchemaPath './Example' -ComposeService 'backend' -EnvFile '.env'
+Invoke-DrXApiSchemaValidation -SchemaPath './Example/Schema' -ComposeService 'backend' -EnvFile '.env'
 
 .INPUTS
 None. You cannot pipe input to this function.

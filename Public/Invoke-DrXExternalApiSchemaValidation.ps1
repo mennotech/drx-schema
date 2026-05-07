@@ -13,7 +13,7 @@ Optional path to a schema file or directory.
 Optional path to the environment file that contains backend credentials.
 
 .EXAMPLE
-Invoke-DrXExternalApiSchemaValidation -SchemaPath './Example' -EnvFile '.env'
+Invoke-DrXExternalApiSchemaValidation -SchemaPath './Example/Schema' -EnvFile '.env'
 
 .INPUTS
 None. You cannot pipe input to this function.

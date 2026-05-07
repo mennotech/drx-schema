@@ -13,7 +13,7 @@ Optional path to a schema file or directory.
 The compose service name for the backend container.
 
 .EXAMPLE
-Invoke-DrXSchemaCrudValidation -SchemaPath './Example' -ComposeService 'backend'
+Invoke-DrXSchemaCrudValidation -SchemaPath './Example/Schema' -ComposeService 'backend'
 
 .INPUTS
 None. You cannot pipe input to this function.

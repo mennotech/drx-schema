@@ -14,7 +14,7 @@ Expected `.env` values for backend commands:
 BACKEND_URL=http://localhost
 DRUPAL_ADMIN_USER=admin
 DRUPAL_ADMIN_PASS=admin
-DRX_SCHEMA_PATH=Example
+DRX_SCHEMA_PATH=Example/Schema
 ```
 
 If `DRX_SCHEMA_PATH` is set, schema commands can omit `-SchemaPath` and resolve the schema location from the `.env` file.
@@ -27,14 +27,16 @@ From the repository root:
 Import-Module ./DrX-Schema.psd1 -Force
 ```
 
-The sample schema used by the tests lives in `./Example`.
+The sample schema used by the tests lives in `./Example/Schema`.
+
+Generated Drupal scaffold snapshots for release validation live in `./Example/DrupalConfig`.
 
 ## Typical Workflow
 
 ```powershell
-$parsed = Import-DrXSchema -SchemaPath ./Example
+$parsed = Import-DrXSchema -SchemaPath ./Example/Schema
 $normalized = ConvertTo-DrXNormalizedSchema -ParsedSchema $parsed
-$bundles = Get-DrXSchemaBundle -SchemaPath ./Example
+$bundles = Get-DrXSchemaBundle -SchemaPath ./Example/Schema
 
 $bundles | Format-Table
 ```
@@ -53,7 +55,7 @@ Invoke-DrXApiSchemaValidation -EnvFile ./.env
 Reads a schema file or directory and returns the parsed schema document.
 
 ```powershell
-$schema = Import-DrXSchema -SchemaPath ./Example
+$schema = Import-DrXSchema -SchemaPath ./Example/Schema
 $schema.catalog.reusable_bundles.Count
 ```
 
@@ -64,7 +66,7 @@ Use this when you want the raw parsed schema before any normalization.
 Converts the parsed schema into the normalized bundle structure used by the rest of the module.
 
 ```powershell
-$parsed = Import-DrXSchema -SchemaPath ./Example
+$parsed = Import-DrXSchema -SchemaPath ./Example/Schema
 $normalized = ConvertTo-DrXNormalizedSchema -ParsedSchema $parsed
 $normalized.bundles | Select-Object machine_name, label, kind
 ```
@@ -76,7 +78,7 @@ Use this when you need consistent bundle names, sections, and field structures.
 Returns the unique normalized bundles defined by a schema.
 
 ```powershell
-Get-DrXSchemaBundle -SchemaPath ./Example |
+Get-DrXSchemaBundle -SchemaPath ./Example/Schema |
   Format-Table Bundle, Label, Kind
 ```
 
@@ -87,7 +89,7 @@ Use this for quick inspection of what the schema defines.
 Generates Drupal configuration files for the schema into an output directory.
 
 ```powershell
-Export-DrXDrupalScaffoldConfig -SchemaPath ./Example -OutputDir ./out/config
+Export-DrXDrupalScaffoldConfig -SchemaPath ./Example/Schema -OutputDir ./Example/DrupalConfig
 ```
 
 The command writes node type, field storage, field instance, form display, and view display YAML files.
@@ -119,7 +121,7 @@ Use this first when backend-dependent commands are failing.
 Validates schema bundles through the external JSON:API surface by creating, reading, updating, and deleting fixtures.
 
 ```powershell
-Invoke-DrXExternalApiSchemaValidation -SchemaPath ./Example -EnvFile ./.env
+Invoke-DrXExternalApiSchemaValidation -SchemaPath ./Example/Schema -EnvFile ./.env
 ```
 
 Use this to confirm that the exposed JSON:API behavior matches the schema.
@@ -129,7 +131,7 @@ Use this to confirm that the exposed JSON:API behavior matches the schema.
 Runs the internal API schema validation workflow against the backend container.
 
 ```powershell
-Invoke-DrXApiSchemaValidation -SchemaPath ./Example -ComposeService backend -EnvFile ./.env
+Invoke-DrXApiSchemaValidation -SchemaPath ./Example/Schema -ComposeService backend -EnvFile ./.env
 ```
 
 Use this when validating the internal API contract generated from the schema.
@@ -139,7 +141,7 @@ Use this when validating the internal API contract generated from the schema.
 Runs database-oriented CRUD validation for the schema against the backend container.
 
 ```powershell
-Invoke-DrXSchemaCrudValidation -SchemaPath ./Example -ComposeService backend
+Invoke-DrXSchemaCrudValidation -SchemaPath ./Example/Schema -ComposeService backend
 ```
 
 Use this to validate persistence behavior below the API layer.

@@ -10,7 +10,7 @@ the scaffold generation and validation commands.
 The parsed schema object returned by Import-DrXSchema.
 
 .EXAMPLE
-$parsedSchema = Import-DrXSchema -SchemaPath './Example'
+$parsedSchema = Import-DrXSchema -SchemaPath './Example/Schema'
 ConvertTo-DrXNormalizedSchema -ParsedSchema $parsedSchema
 
 .INPUTS

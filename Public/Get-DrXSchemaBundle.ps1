@@ -10,7 +10,7 @@ defines for downstream generation or validation tasks.
 Optional path to a schema file or directory.
 
 .EXAMPLE
-Get-DrXSchemaBundle -SchemaPath './Example'
+Get-DrXSchemaBundle -SchemaPath './Example/Schema'
 
 .INPUTS
 None. You cannot pipe input to this function.
