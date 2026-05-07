@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_emergency_contact_person
+    - node.type.page_health_information
+    - node.type.person
+id: node.page_health_information.field_emergency_contact_person
+field_name: field_emergency_contact_person
+entity_type: node
+bundle: page_health_information
+label: Emergency Contact (other than primary or secondary guardian)
+description: 'Section: Health Information'
+required: true
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

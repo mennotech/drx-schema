@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_secondary_guardian__d20f5d
+    - node.type.page_parent_guardian_info
+id: node.page_parent_guardian_info.field_secondary_guardian__d20f5d
+field_name: field_secondary_guardian__d20f5d
+entity_type: node
+bundle: page_parent_guardian_info
+label: Secondary Guardian Notes
+description: 'Section: Parent / Guardian Information'
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: text_long

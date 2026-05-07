@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.application_form
+    - field.field.node.application_form.field_enabled
+    - field.field.node.application_form.field_description
+    - field.field.node.application_form.field_pages
+  module:
+    - node
+    - text
+    - options
+id: node.application_form.default
+targetEntityType: node
+bundle: application_form
+mode: default
+content:
+  field_enabled:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {}
+    weight: 0
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 1
+    region: content
+  field_pages:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 2
+    region: content
+hidden: {}

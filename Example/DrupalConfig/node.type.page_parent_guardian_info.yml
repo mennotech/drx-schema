@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+name: Page - Parent Guardian Information
+type: page_parent_guardian_info
+description: 'Reusable page definition for parent, guardian, and emergency contact relationships.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

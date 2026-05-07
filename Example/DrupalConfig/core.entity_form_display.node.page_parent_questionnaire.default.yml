@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_parent_questionnaire
+    - field.field.node.page_parent_questionnaire.field_master_application
+    - field.field.node.page_parent_questionnaire.field_questionnaire_conta_e6f376
+    - field.field.node.page_parent_questionnaire.field_christian_testimony
+    - field.field.node.page_parent_questionnaire.field_school_interest_reason
+  module:
+    - node
+    - text
+id: node.page_parent_questionnaire.default
+targetEntityType: node
+bundle: page_parent_questionnaire
+mode: default
+content:
+  field_master_application:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_questionnaire_conta_e6f376:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_christian_testimony:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  field_school_interest_reason:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+hidden: {}

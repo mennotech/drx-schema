@@ -1,0 +1,84 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_parent_guardian_info
+    - field.field.node.page_parent_guardian_info.field_master_application
+    - field.field.node.page_parent_guardian_info.field_primary_guardian_person
+    - field.field.node.page_parent_guardian_info.field_primary_guardian_re_df608e
+    - field.field.node.page_parent_guardian_info.field_secondary_guardian_person
+    - field.field.node.page_parent_guardian_info.field_secondary_guardian__ebbb43
+    - field.field.node.page_parent_guardian_info.field_primary_guardian_re_630bb2
+    - field.field.node.page_parent_guardian_info.field_secondary_guardian__d20f5d
+    - field.field.node.page_parent_guardian_info.field_emergency_contact_r_c0c788
+  module:
+    - node
+    - options
+    - text
+id: node.page_parent_guardian_info.default
+targetEntityType: node
+bundle: page_parent_guardian_info
+mode: default
+content:
+  field_master_application:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 0
+    region: content
+  field_primary_guardian_person:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 1
+    region: content
+  field_primary_guardian_re_df608e:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 2
+    region: content
+  field_secondary_guardian_person:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 3
+    region: content
+  field_secondary_guardian__ebbb43:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 4
+    region: content
+  field_primary_guardian_re_630bb2:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 5
+    region: content
+  field_secondary_guardian__d20f5d:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 6
+    region: content
+  field_emergency_contact_r_c0c788:
+    type: text_default
+    label: above
+    settings: {}
+    third_party_settings: {}
+    weight: 7
+    region: content
+hidden: {}

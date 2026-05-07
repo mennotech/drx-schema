@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_allergies
+    - node.type.page_health_information
+id: node.page_health_information.field_allergies
+field_name: field_allergies
+entity_type: node
+bundle: page_health_information
+label: Allergies
+description: 'Section: Health Information'
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: text_long

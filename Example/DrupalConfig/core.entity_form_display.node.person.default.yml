@@ -1,0 +1,113 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+    - field.field.node.person.field_given_name
+    - field.field.node.person.field_middle_name
+    - field.field.node.person.field_surname
+    - field.field.node.person.field_preferred_name
+    - field.field.node.person.field_relationship_to_student
+    - field.field.node.person.field_workplace
+    - field.field.node.person.field_email_addresses
+    - field.field.node.person.field_phone_numbers
+    - field.field.node.person.field_primary_address
+    - field.field.node.person.field_mailing_address_differs
+    - field.field.node.person.field_mailing_address
+  module:
+    - node
+    - options
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_given_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_middle_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_surname:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_preferred_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_relationship_to_student:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_workplace:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_email_addresses:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_phone_numbers:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_primary_address:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  field_mailing_address_differs:
+    type: options_buttons
+    weight: 9
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_mailing_address:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+hidden: {}

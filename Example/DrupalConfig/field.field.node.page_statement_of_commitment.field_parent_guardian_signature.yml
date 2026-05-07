@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_parent_guardian_signature
+    - node.type.page_statement_of_commitment
+id: node.page_statement_of_commitment.field_parent_guardian_signature
+field_name: field_parent_guardian_signature
+entity_type: node
+bundle: page_statement_of_commitment
+label: Parent/Guardian Signature
+description: 'Section: Statement of Commitment'
+required: true
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: text_long

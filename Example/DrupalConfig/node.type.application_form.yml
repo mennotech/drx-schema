@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+name: Application Form
+type: application_form
+description: Admin-configured application form template that controls which reusable pages appear and in what order.
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

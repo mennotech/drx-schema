@@ -1,0 +1,113 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+    - field.field.node.person.field_given_name
+    - field.field.node.person.field_middle_name
+    - field.field.node.person.field_surname
+    - field.field.node.person.field_preferred_name
+    - field.field.node.person.field_relationship_to_student
+    - field.field.node.person.field_workplace
+    - field.field.node.person.field_email_addresses
+    - field.field.node.person.field_phone_numbers
+    - field.field.node.person.field_primary_address
+    - field.field.node.person.field_mailing_address_differs
+    - field.field.node.person.field_mailing_address
+  module:
+    - node
+    - options
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_given_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 0
+    region: content
+  field_middle_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 1
+    region: content
+  field_surname:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 2
+    region: content
+  field_preferred_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 3
+    region: content
+  field_relationship_to_student:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 4
+    region: content
+  field_workplace:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 5
+    region: content
+  field_email_addresses:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 6
+    region: content
+  field_phone_numbers:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 7
+    region: content
+  field_primary_address:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 8
+    region: content
+  field_mailing_address_differs:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 9
+    region: content
+  field_mailing_address:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 10
+    region: content
+hidden: {}

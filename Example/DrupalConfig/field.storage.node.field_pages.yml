@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_pages
+field_name: field_pages
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    - value: page_student_information
+      label: page_student_information
+    - value: page_health_information
+      label: page_health_information
+    - value: page_parent_guardian_info
+      label: page_parent_guardian_info
+    - value: page_additional_support
+      label: page_additional_support
+    - value: page_parent_questionnaire
+      label: page_parent_questionnaire
+    - value: page_statement_of_commitment
+      label: page_statement_of_commitment
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: false
+indexes: {}
+persist_with_no_fields: false
+custom_storage: false

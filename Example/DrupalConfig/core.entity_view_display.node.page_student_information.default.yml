@@ -1,0 +1,160 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page_student_information
+    - field.field.node.page_student_information.field_master_application
+    - field.field.node.page_student_information.field_student_first_name
+    - field.field.node.page_student_information.field_student_middle_name
+    - field.field.node.page_student_information.field_student_last_name
+    - field.field.node.page_student_information.field_student_preferred_name
+    - field.field.node.page_student_information.field_student_gender
+    - field.field.node.page_student_information.field_student_birth_date
+    - field.field.node.page_student_information.field_student_current_grade
+    - field.field.node.page_student_information.field_primary_home_phone
+    - field.field.node.page_student_information.field_physical_address
+    - field.field.node.page_student_information.field_mailing_address_differs
+    - field.field.node.page_student_information.field_mailing_address
+    - field.field.node.page_student_information.field_citizenship_status
+    - field.field.node.page_student_information.field_attended_mb_school_before
+    - field.field.node.page_student_information.field_church_attending
+    - field.field.node.page_student_information.field_denomination
+  module:
+    - node
+    - options
+    - datetime
+id: node.page_student_information.default
+targetEntityType: node
+bundle: page_student_information
+mode: default
+content:
+  field_master_application:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 0
+    region: content
+  field_student_first_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 1
+    region: content
+  field_student_middle_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 2
+    region: content
+  field_student_last_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 3
+    region: content
+  field_student_preferred_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 4
+    region: content
+  field_student_gender:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 5
+    region: content
+  field_student_birth_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {}
+    weight: 6
+    region: content
+  field_student_current_grade:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 7
+    region: content
+  field_primary_home_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 8
+    region: content
+  field_physical_address:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 9
+    region: content
+  field_mailing_address_differs:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 10
+    region: content
+  field_mailing_address:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {}
+    weight: 11
+    region: content
+  field_citizenship_status:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 12
+    region: content
+  field_attended_mb_school_before:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 13
+    region: content
+  field_church_attending:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 14
+    region: content
+  field_denomination:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    weight: 15
+    region: content
+hidden: {}
