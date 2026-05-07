@@ -124,6 +124,8 @@ Validates schema bundles through the external JSON:API surface by creating, read
 Invoke-DrXExternalApiSchemaValidation -SchemaPath ./Example/Schema -EnvFile ./.env
 ```
 
+Use `-OutputFormat Json` or `-OutputFormat Csv` to receive results as a JSON or CSV string instead of the default table. Pass `-Verbose` for per-bundle progress or `-Debug` for full diagnostic output.
+
 Use this to confirm that the exposed JSON:API behavior matches the schema.
 
 ### Invoke-DrXApiSchemaValidation
@@ -133,6 +135,8 @@ Runs the internal API schema validation workflow against the backend container.
 ```powershell
 Invoke-DrXApiSchemaValidation -SchemaPath ./Example/Schema -ComposeService backend -EnvFile ./.env
 ```
+
+Use `-OutputFormat Json` or `-OutputFormat Csv` to receive results as a JSON or CSV string instead of the default table. Pass `-Verbose` for per-bundle progress or `-Debug` for full diagnostic output.
 
 Use this when validating the internal API contract generated from the schema.
 
@@ -144,6 +148,8 @@ Runs database-oriented CRUD validation for the schema against the backend contai
 Invoke-DrXSchemaCrudValidation -SchemaPath ./Example/Schema -ComposeService backend
 ```
 
+Use `-OutputFormat Json` or `-OutputFormat Csv` to receive results as a JSON or CSV string instead of the default table. Pass `-Verbose` for per-bundle progress or `-Debug` for full diagnostic output.
+
 Use this to validate persistence behavior below the API layer.
 
 ## Validation
@@ -153,6 +159,14 @@ Run the focused test suite from the repository root:
 ```powershell
 Invoke-Pester -Path ./Tests/DrX-Schema.Tests.ps1
 ```
+
+Run the published base-image integration validation from the repository root:
+
+```powershell
+pwsh ./Tests/Invoke-DrXPublishedBaseImageValidation.ps1
+```
+
+That flow pulls `ghcr.io/mennotech/drx-drupal-base:0.0.1-rc1`, generates scaffold config from `./Example/Schema`, mounts the generated config into the container's config sync directory, waits for the built-in Drupal healthcheck, and then runs the smoke, external API, internal API, and CRUD validations against the running server.
 
 If backend integration commands fail, verify that:
 

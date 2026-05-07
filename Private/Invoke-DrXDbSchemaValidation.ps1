@@ -9,5 +9,26 @@ function Invoke-DrXDbSchemaValidation {
     throw 'No bundles were found in the schema directory.'
   }
 
-  return Invoke-DrXDrushPhpScript -PhpContents (New-DrXSchemaCrudValidatorPhp -Bundles $schemaBundles) -ComposeService $ComposeService -ContainerPhpPath '/tmp/schema-validator.php'
+  Write-Verbose "Running CRUD validation for $($schemaBundles.Count) bundle(s) via drush..."
+  $rawOutput = Invoke-DrXDrushPhpScript -PhpContents (New-DrXSchemaCrudValidatorPhp -Bundles $schemaBundles) -ComposeService $ComposeService -ContainerPhpPath '/tmp/schema-validator.php'
+
+  Write-Debug "Raw drush output: $rawOutput"
+  $payload = $rawOutput | ConvertFrom-Json
+
+  $results = [System.Collections.ArrayList]::new()
+  foreach ($item in @($payload.results)) {
+    $message = if ($item.PSObject.Properties['message']) { [string]$item.message } else { $null }
+    [void]$results.Add([pscustomobject]@{
+      Bundle  = [string]$item.bundle
+      Nid     = if ($null -ne $item.PSObject.Properties['nid']) { [int]$item.nid } else { $null }
+      Uuid    = if ($null -ne $item.PSObject.Properties['uuid']) { [string]$item.uuid } else { $null }
+      Status  = [string]$item.status
+      Message = $message
+    })
+  }
+
+  return [pscustomobject]@{
+    Results = @($results)
+    Failed  = [bool]$payload.failed
+  }
 }
