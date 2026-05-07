@@ -63,6 +63,55 @@ Describe 'DrX-Schema schema import' {
   }
 }
 
+Describe 'DrX-Schema validation output format' {
+  BeforeAll {
+    $script:ValidationFunctions = @(
+      'Invoke-DrXApiSchemaValidation',
+      'Invoke-DrXExternalApiSchemaValidation',
+      'Invoke-DrXSchemaCrudValidation'
+    )
+  }
+
+  It 'exposes an OutputFormat parameter on <_>' -ForEach @(
+    'Invoke-DrXApiSchemaValidation',
+    'Invoke-DrXExternalApiSchemaValidation',
+    'Invoke-DrXSchemaCrudValidation'
+  ) {
+    $command = Get-Command -Name $_ -Module DrX-Schema -ErrorAction Stop
+    $param = $command.Parameters['OutputFormat']
+
+    $param | Should -Not -BeNull
+    $param.ParameterType.Name | Should -Be 'String'
+    $param.Attributes.ValidValues | Should -Contain 'Table'
+    $param.Attributes.ValidValues | Should -Contain 'Json'
+    $param.Attributes.ValidValues | Should -Contain 'Csv'
+  }
+
+  It 'defaults OutputFormat to Table on <_>' -ForEach @(
+    'Invoke-DrXApiSchemaValidation',
+    'Invoke-DrXExternalApiSchemaValidation',
+    'Invoke-DrXSchemaCrudValidation'
+  ) {
+    $command = Get-Command -Name $_ -Module DrX-Schema -ErrorAction Stop
+    $paramAst = $command.ScriptBlock.Ast.Body.ParamBlock.Parameters |
+      Where-Object { $_.Name.VariablePath.UserPath -eq 'OutputFormat' }
+
+    $paramAst | Should -Not -BeNull
+    $paramAst.DefaultValue.ToString() | Should -Be "'Table'"
+  }
+
+  It 'supports -Verbose and -Debug on <_>' -ForEach @(
+    'Invoke-DrXApiSchemaValidation',
+    'Invoke-DrXExternalApiSchemaValidation',
+    'Invoke-DrXSchemaCrudValidation'
+  ) {
+    $command = Get-Command -Name $_ -Module DrX-Schema -ErrorAction Stop
+
+    $command.Parameters.ContainsKey('Verbose') | Should -BeTrue
+    $command.Parameters.ContainsKey('Debug') | Should -BeTrue
+  }
+}
+
 Describe 'DrX-Schema lint' -Tag 'Lint' {
   It 'passes the focused PSScriptAnalyzer ruleset' -Skip:(-not (Get-Command -Name Invoke-ScriptAnalyzer -ErrorAction SilentlyContinue)) {
     $settingsPath = Join-Path -Path $PSScriptRoot -ChildPath '..\PSScriptAnalyzerSettings.psd1'
