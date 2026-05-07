@@ -160,6 +160,14 @@ Run the focused test suite from the repository root:
 Invoke-Pester -Path ./Tests/DrX-Schema.Tests.ps1
 ```
 
+Run the published base-image integration validation from the repository root:
+
+```powershell
+pwsh ./Tests/Invoke-DrXPublishedBaseImageValidation.ps1
+```
+
+That flow pulls `ghcr.io/mennotech/drx-drupal-base:0.0.1-rc1`, generates scaffold config from `./Example/Schema`, mounts the generated config into the container's config sync directory, waits for the built-in Drupal healthcheck, and then runs the smoke, external API, internal API, and CRUD validations against the running server.
+
 If backend integration commands fail, verify that:
 
 - the backend is running
