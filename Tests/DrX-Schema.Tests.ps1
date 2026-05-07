@@ -40,6 +40,27 @@ Describe 'DrX-Schema schema import' {
     $bundleCount | Should -BeGreaterThan 0
     $normalizedSchema.bundles.Count | Should -Be $bundleCount
   }
+
+  It 'resolves schema path from the provided env file when schema path is omitted' {
+    $tempRoot = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ([System.Guid]::NewGuid().ToString())
+    $schemaDir = Join-Path -Path $tempRoot -ChildPath 'schema'
+    $envFile = Join-Path -Path $tempRoot -ChildPath '.env'
+
+    New-Item -ItemType Directory -Path $schemaDir -Force | Out-Null
+    Copy-Item -Path (Join-Path -Path $PSScriptRoot -ChildPath '..\Example\*.yaml') -Destination $schemaDir
+    Set-Content -Path $envFile -Value 'DRX_SCHEMA_PATH=./schema'
+
+    try {
+      $parsedSchema = Import-DrXSchema -EnvFile $envFile
+      $bundles = Get-DrXSchemaBundle -EnvFile $envFile
+
+      $parsedSchema.catalog.reusable_bundles.Count | Should -BeGreaterThan 0
+      $bundles.Count | Should -BeGreaterThan 0
+    }
+    finally {
+      Remove-Item -Path $tempRoot -Recurse -Force -ErrorAction SilentlyContinue
+    }
+  }
 }
 
 Describe 'DrX-Schema lint' -Tag 'Lint' {

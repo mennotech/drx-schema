@@ -1,5 +1,8 @@
 function Resolve-DrXSchemaPath {
-  param([string]$SchemaPath)
+  param(
+    [string]$SchemaPath,
+    [string]$EnvFile
+  )
 
   if ($SchemaPath) {
     return $SchemaPath
@@ -9,7 +12,7 @@ function Resolve-DrXSchemaPath {
     return $env:DRX_SCHEMA_PATH
   }
 
-  $envFilePath = Resolve-DrXEnvFilePath
+  $envFilePath = Resolve-DrXEnvFilePath -EnvFile $EnvFile
   if (Test-Path $envFilePath) {
     $envMap = Get-DrXEnvMap -Path $envFilePath
     $configuredSchemaPath = $envMap['DRX_SCHEMA_PATH']

@@ -29,10 +29,11 @@ function Get-DrXSchemaBundle {
   [OutputType([object[]])]
   [CmdletBinding()]
   param(
-    [string]$SchemaPath
+    [string]$SchemaPath,
+    [string]$EnvFile
   )
 
-  $normalizedSchema = ConvertTo-DrXNormalizedSchema -ParsedSchema (Import-DrXSchema -SchemaPath $SchemaPath)
+  $normalizedSchema = ConvertTo-DrXNormalizedSchema -ParsedSchema (Import-DrXSchema -SchemaPath $SchemaPath -EnvFile $EnvFile)
   return @($normalizedSchema['bundles'] | ForEach-Object {
     [pscustomobject]@{
       SchemaMachineName = $_['machine_name']

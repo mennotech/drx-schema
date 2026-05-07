@@ -28,12 +28,11 @@ ConvertTo-DrXNormalizedSchema
 function Import-DrXSchema {
   [CmdletBinding()]
   param(
-    [Parameter(Mandatory)]
-    [ValidateNotNullOrEmpty()]
-    [string]$SchemaPath
+    [string]$SchemaPath,
+    [string]$EnvFile
   )
 
-  $resolvedSchemaPath = Resolve-DrXSchemaPath -SchemaPath $SchemaPath
+  $resolvedSchemaPath = Resolve-DrXSchemaPath -SchemaPath $SchemaPath -EnvFile $EnvFile
   $resolvedPath = (Resolve-Path -Path $resolvedSchemaPath -ErrorAction Stop).Path
   $item = Get-Item $resolvedPath
   if ($item.PSIsContainer) {

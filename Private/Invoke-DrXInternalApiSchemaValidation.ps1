@@ -5,7 +5,7 @@ function Invoke-DrXInternalApiSchemaValidation {
     [string]$EnvFile
   )
 
-  $schemaBundles = @(Get-DrXSchemaBundle -SchemaPath $SchemaPath)
+  $schemaBundles = @(Get-DrXSchemaBundle -SchemaPath $SchemaPath -EnvFile $EnvFile)
   if ($schemaBundles.Count -eq 0) {
     throw 'No bundles were found in the schema directory.'
   }
